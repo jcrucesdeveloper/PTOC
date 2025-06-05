@@ -29,8 +29,6 @@
    - Universidad de Chile, FCFM
    - Course materials and resources
 
-# Additional Legendary PyTorch Repositories
-
 ## Computer Vision
 
 1. **Detectron2** - Facebook AI Research
