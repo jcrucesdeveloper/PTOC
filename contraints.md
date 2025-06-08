@@ -49,6 +49,30 @@ Operations without parameters no error
 ### Contraints 
 TT_output
 
+## 3 - torch.nn.Linear
+
+Applies an affine linear transformation to the incoming data:  y = x(A^T) + b
+
+This module supports TensorFloat32.
+
+On certain ROCm devices, when using float16 inputs this module will use different precision for backward.
+
+**Parameters:**
+
+- `in_features` (`int`) – size of each input sample
+- `out_features` (`int`) – size of each output sample
+- `bias` (`bool`) – If set to False, the layer will not learn an additive bias. Default: True
+
+### Errors
+- RuntimeError: Trying to create tensor with negative dimension -1: [20, -1]
+
+```python
+nn.Linear(-1,20)
+>>> RuntimeError: Trying to create tensor with negative dimension -1: [20, -1]
+
+nn.Linear(1,-1)
+>>> RuntimeError: Trying to create tensor with negative dimension -1: [-1, 1]
+```
 
 
 
