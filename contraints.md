@@ -34,7 +34,6 @@ torch.range(1, 3,  -1)
 range c1 c2 c3 -> TT_output
 ```
 
-- c1
 
 
 ## 2 -  torch.flatten 
