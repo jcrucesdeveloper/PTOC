@@ -1,4 +1,4 @@
-## 1 -  torch.range (deprecated)
+## 1 -  torch.range(c1,c2,c3) (deprecated)
 
 Returns a 1-D tensor of size ⌊(end−start)/step⌋+1 with values from start to end with step step. Step is the gap between two values in the tensor.
 
@@ -33,6 +33,22 @@ torch.range(1, 3,  -1)
 ```
 range c1 c2 c3 -> TT_output
 ```
+
+
+## 2 - torch.Tensor.size()
+
+torch.Size is the result type of a call to torch.Tensor.size(). It describes the size of all dimensions of the original tensor. As a subclass of tuple, it supports common sequence operations like indexing and length.
+
+
+**Parameters:**
+No parameters
+
+### Errors
+Operations without parameters no error
+
+### Contraints 
+TT_output
+
 
 
 
