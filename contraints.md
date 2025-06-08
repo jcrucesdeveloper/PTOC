@@ -1,4 +1,4 @@
-## torch.range
+## torch.range (deprecated)
 
 Returns a 1-D tensor of size ⌊(end−start)/step⌋+1 with values from start to end with step step. Step is the gap between two values in the tensor.
 
@@ -10,13 +10,20 @@ Returns a 1-D tensor of size ⌊(end−start)/step⌋+1 with values from start t
 
 ### Errors
 
-- Step cannot be zero
+- RuntimeError: step must be nonzero
 
 ```python
-# RuntimeError - Zero step
 torch.range(1, 5, 0)
->>> RuntimeError: step cannot be zero
+>>> RuntimeError: step must be nonzero
 ```
+
+- RuntimeError: upper bound and lower bound inconsistent with step sign
+
+```python
+torch.range(1, -3, 1)
+>>> RuntimeError: upper bound and lower bound inconsistent with step sign
+```
+
 
 **Constraints:**
 
