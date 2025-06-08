@@ -1,4 +1,4 @@
-## torch.range (deprecated)
+## 1 -  torch.range (deprecated)
 
 Returns a 1-D tensor of size ⌊(end−start)/step⌋+1 with values from start to end with step step. Step is the gap between two values in the tensor.
 
@@ -22,44 +22,22 @@ torch.range(1, 5, 0)
 ```python
 torch.range(1, -3, 1)
 >>> RuntimeError: upper bound and lower bound inconsistent with step sign
+
+torch.range(1, 3,  -1)
+>>> RuntimeError: upper bound and lower bound inconsistent with step sign
 ```
-
-
-**Constraints:**
-
-- c1 > 0
-- c2 >
-
-- **Type Signature:**
-
-```python
-;; range :: c1=start c2=end c3=step -> Tensor([⌊(end−start)/step⌋+1], dim=1)
-; constraints:
-; step ≠ 0
-
-# Dimension and Shape
-t = torch.range(1, 4)
-t.dim() # 1
-t.size() # torch.Size([4])
-
-print(t)
->>> tensor([1., 2., 3., 4.])
-
-# With step parameter
-t = torch.range(1, 4, 0.5)
-t.dim() # 1
-t.size() # torch.Size([7])
-
-print(t)
->>> tensor([1.0000, 1.5000, 2.0000, 2.5000, 3.0000, 3.5000, 4.0000])
-```
-
-Note: This function is deprecated and will be removed in a future release because its behavior is inconsistent with Python's range builtin. Instead, use torch.arange(), which produces values in [start, end).
 
 #### Constraints
 
-- TT_input = TT([x_1, x_2, ... , x_n], dim=n)
-- TT_output = TT([x1 * ... * x_n], dim=1)
+
+```
+range c1 c2 c3 -> TT_output
+```
+
+- c1
+
+
+## 2 -  torch.flatten 
 
 **Parameters:**
 
