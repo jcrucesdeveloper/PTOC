@@ -47,7 +47,7 @@ No parameters
 Operations without parameters no error
 
 ### Contraints 
-TT_output
+...
 
 ## 3 - torch.nn.Linear
 
@@ -73,6 +73,9 @@ nn.Linear(-1,20)
 nn.Linear(1,-1)
 >>> RuntimeError: Trying to create tensor with negative dimension -1: [-1, 1]
 ```
+
+### Contraints 
+...
 
 
 
