@@ -27,7 +27,7 @@ torch.range(1, 3,  -1)
 >>> RuntimeError: upper bound and lower bound inconsistent with step sign
 ```
 
-#### Constraints
+### Constraints
 
 
 ```
