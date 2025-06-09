@@ -211,4 +211,50 @@ torch.cat((x, y), dim=0)
 ### Constraints
 ...
 
+## 9 - torch.split
+
+## 10 - torch.unsqueeze
+
+## 11 - torch.zeros
+
+## 12 - torch.arange
+
+## 13 - torch.ones
+
+## 14 - torch.max
+
+## 15 - torch.any
+
+## 16 - torch.nn.LayerNorm
+
+## 17 - torch.squeeze
+
+## 18 - torch.expand
+
+## 19 - torch.allclose
+
+## 20 - torch.nn.Dropout
+
+## 21 - torch.permute
+
+## 22 - torch.mean
+
+## 23 - torch.min
+
+## 24 - torch.all
+
+## 25 - torch.matmul
+
+## 26 - torch.stack
+
+## 27 - torch.log
+
+## 28 - torch.flatten
+
+## 29 - torch.Embedding
+
+## 30 - torch.sqrt
+
+
+
 
