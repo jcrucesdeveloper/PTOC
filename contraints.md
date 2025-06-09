@@ -118,69 +118,35 @@ torch.reshape(t, (4, 3))
 
 
 
-## 2 -  torch.flatten 
+
+## 5 -  torch.flatten 
+
+Flattens input by reshaping it into a one-dimensional tensor. If start_dim or end_dim are passed, only dimensions starting with start_dim and ending with end_dim are flattened. The order of elements in input is unchanged.
+
+
 
 **Parameters:**
 
-- `input` (`Tensor`): The input tensor.
+- `input` (`Tensor`): The input tensor
+- `start_dim` (`int`): The first dimension to flatten
+- `end_dim` (`int`): The last dimension to flatten
 
-**Type Signature:**
+### Errors
+
+- IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 10)
 
 ```python
-;; flatten ::  TT([x_1, x_2, ... , x_n], dim=n) -> TT([x_1 * x_2 * ... * x_n], dim=1)
-
-# Dimension and Shape - before flatten
 t = torch.tensor([[[1, 2],
                    [3, 4]],
                   [[5, 6],
                    [7, 8]]])
-t.dim() # 3
-t.size() # torch.Size([2, 2, 2])
+torch.flatten(t, start_dim=10)
+>>> IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 10)
 
-# Dimension and Shape - after flatten
-t = torch.flatten(t)
-t.dim() # 1
-t.size() # torch.Size([8])
-
-print(t)
->>> tensor([1,2,3,4,5,6,7,8])
+torch.flatten(t, start_dim=2,end_dim=3)
+>>> IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
 ```
-
-## torch.flatten
-
-Flattens input by reshaping it into a one-dimensional tensor. The order of elements in input is unchanged.
-
-#### Constraints
-
-- TT_input = TT([x_1, x_2, ... , x_n], dim=n)
-- TT_output = TT([x1 * ... * x_n], dim=1)
-
-**Parameters:**
-
-- `input` (`Tensor`): The input tensor.
-
-**Type Signature:**
-
-```python
-;; flatten ::  TT([x_1, x_2, ... , x_n], dim=n) -> TT([x_1 * x_2 * ... * x_n], dim=1)
-
-# Dimension and Shape - before flatten
-t = torch.tensor([[[1, 2],
-                   [3, 4]],
-                  [[5, 6],
-                   [7, 8]]])
-t.dim() # 3
-t.size() # torch.Size([2, 2, 2])
-
-# Dimension and Shape - after flatten
-t = torch.flatten(t)
-t.dim() # 1
-t.size() # torch.Size([8])
-
-print(t)
->>> tensor([1,2,3,4,5,6,7,8])
-```
-
+k
 ### Example 3: torch.reshape
 
 Returns a tensor with the same data and number of elements as input, but with the specified shape.
