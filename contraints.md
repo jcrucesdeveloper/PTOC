@@ -1,4 +1,4 @@
-## 1 -  torch.range(c1,c2,c3) (deprecated)
+## 1 -  torch.range
 
 Returns a 1-D tensor of size ⌊(end−start)/step⌋+1 with values from start to end with step step. Step is the gap between two values in the tensor.
 
@@ -35,7 +35,7 @@ range c1 c2 c3 -> TT_output
 ```
 
 
-## 2 - torch.Tensor.size()
+## 2 - torch.Tensor.size
 
 torch.Size is the result type of a call to torch.Tensor.size(). It describes the size of all dimensions of the original tensor. As a subclass of tuple, it supports common sequence operations like indexing and length.
 
@@ -76,6 +76,45 @@ nn.Linear(1,-1)
 
 ### Contraints 
 ...
+
+## 4 - torch.reshape
+
+Returns a tensor with the same data and number of elements as input, but with the specified shape. When possible, the returned tensor will be a view of input. Otherwise, it will be a copy. Contiguous inputs and inputs with compatible strides can be reshaped without copying, but you should not depend on the copying vs. viewing behavior.
+
+**Parameters:**
+
+- `input` (`Tensor`): The tensor to be reshaped
+- `shape` (`tuple of int`): The new shape
+
+### Errors
+
+- RuntimeError: All other dimensions must be positive integers.
+
+```python
+t = torch.zeros(4)
+torch.reshape(t, (-2,2))
+>>> RuntimeError: invalid shape dimension -2
+```
+
+- RuntimeError: Only one dimension can be -1 (PyTorch will infer its value).
+
+```python
+t = torch.zeros(4)
+torch.reshape(t, (-1,-1))
+>>> RuntimeError: only one dimension can be inferred
+```
+
+- RuntimeError: The product of the new shape's dimensions should be equal to the product of the original shape's dimensions
+
+```python
+t = torch.zeros(4, 2)
+torch.reshape(t, (4, 3))
+>>> RuntimeError: shape '[4, 3]' is invalid for input of size 8
+```
+
+#### Constraints
+...
+
 
 
 
