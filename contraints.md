@@ -1,4 +1,4 @@
-## 1.  torch.range
+## 1. torch.range
 
 Returns a 1-D tensor of size ⌊(end−start)/step⌋+1 with values from start to end with step step. Step is the gap between two values in the tensor.
 
@@ -111,10 +111,10 @@ torch.reshape(t, (4, 3))
 >>> RuntimeError: shape '[4, 3]' is invalid for input of size 8
 ```
 
-#### Constraints
+### Constraints
 ...
 
-## 5 -  torch.flatten 
+## 5. torch.flatten 
 
 Flattens input by reshaping it into a one-dimensional tensor. If start_dim or end_dim are passed, only dimensions starting with start_dim and ending with end_dim are flattened. The order of elements in input is unchanged.
 
@@ -142,7 +142,7 @@ torch.flatten(t, start_dim=2,end_dim=3)
 >>> IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
 ```
 
-## 6 - torch.transpose
+## 6. torch.transpose
 
 Returns a tensor that is a transposed version of input. The given dimensions dim0 and dim1 are swapped.
 
@@ -165,8 +165,8 @@ torch.transpose(x, 0, 2)  # dim 2 is out of range [-2, 1]
 ...
 
 
-## 7 - torch.sum
-
+## 7. torch.sum
+ 
 Returns the sum of all elements in the input tensor.
 
 **Parameters:**
@@ -179,7 +179,7 @@ Returns the sum of all elements in the input tensor.
 ### Constraints
 ...
 
-## 8 - torch.cat
+## 8. torch.cat
 
 Concatenates the given sequence of tensors in tensors in the given dimension. All tensors must either have the same shape (except in the concatenating dimension) or be a 1-D empty tensor with size (0,).
 
@@ -211,49 +211,49 @@ torch.cat((x, y), dim=0)
 ### Constraints
 ...
 
-## 9 - torch.split
+## 9. torch.split
 
-## 10 - torch.unsqueeze
+## 10. torch.unsqueeze
 
-## 11 - torch.zeros
+## 11. torch.zeros
 
-## 12 - torch.arange
+## 12. torch.arange
 
-## 13 - torch.ones
+## 13. torch.ones
 
-## 14 - torch.max
+## 14. torch.max
 
-## 15 - torch.any
+## 15. torch.any
 
-## 16 - torch.nn.LayerNorm
+## 16. torch.nn.LayerNorm
 
-## 17 - torch.squeeze
+## 17. torch.squeeze
 
-## 18 - torch.expand
+## 18. torch.expand
 
-## 19 - torch.allclose
+## 19. torch.allclose
 
-## 20 - torch.nn.Dropout
+## 20. torch.nn.Dropout
 
-## 21 - torch.permute
+## 21. torch.permute
 
-## 22 - torch.mean
+## 22. torch.mean
 
-## 23 - torch.min
+## 23. torch.min
 
-## 24 - torch.all
+## 24. torch.all
 
-## 25 - torch.matmul
+## 25. torch.matmul
 
-## 26 - torch.stack
+## 26. torch.stack
 
-## 27 - torch.log
+## 27. torch.log
 
-## 28 - torch.flatten
+## 28. torch.flatten
 
-## 29 - torch.Embedding
+## 29. torch.Embedding
 
-## 30 - torch.sqrt
+## 30. torch.sqrt
 
 
 
