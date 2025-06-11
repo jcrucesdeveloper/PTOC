@@ -253,7 +253,6 @@ torch.split(x, -1)
 - RuntimeError: split_with_sizes expects split_sizes to sum exactly to 2 (input tensor's size at dimension 1), but got split_sizes=[1, 10]
 
 ```python
-
 x = torch.arange(10).reshape(5, 2)
 
 # Without parameter dim
