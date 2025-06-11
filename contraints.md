@@ -299,6 +299,10 @@ x = torch.zeros(-3,2)
 >>> RuntimeError: Trying to create tensor with negative dimension -3: [-3, 2]
 ```
 
+### Constraints
+
+...
+
 ## 11. torch.arange
 
 Returns a 1-D tensor of size ⌈(end-start)/step⌉ with values from the interval [start, end) taken with common difference step beginning from start.
@@ -337,9 +341,51 @@ x. = torch.arange(1,2,0)
 >>>RuntimeError: step must be nonzero
 ```
 
+### Constraints
+
+...
+
 ## 13. torch.ones
 
+Returns a tensor filled with the scalar value 1, with the shape defined by the variable argument size.
+
+**Parameters:**
+
+- `size` (`int...`) - A sequence of integers defining the shape of the output tensor. Can be a variable number of arguments or a collection like a list or tuple.
+
+### Errors
+
+- RuntimeError: Trying to create tensor with negative dimension -1: [-1]
+
+```python
+x = torch.ones(-1)
+- RuntimeError: Trying to create tensor with negative dimension -1: [-1]
+```
+
+### Constraints
+
+...
+
 ## 14. torch.max
+
+Returns a namedtuple (values, indices) where values is the maximum value of each row of the input tensor in the given dimension dim. And indices is the index location of each maximum value found (argmax).
+
+If keepdim is True, the output tensors are of the same size as input except in the dimension dim where they are of size 1. Otherwise, dim is squeezed (see torch.squeeze()), resulting in the output tensors having 1 fewer dimension than input.
+
+**Parameters**
+
+- `input` (`Tensor`) - The input tensor
+- `dim` (`int` or `tuple of ints`, optional) - The dimension or dimensions to reduce. If None, all dimensions are reduced
+
+### Errors
+
+- IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 4)
+
+```python
+x = torch.rand(3,2,1)
+torch.sum(x,4)
+>>> IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 4)
+```
 
 ## 15. torch.any
 
