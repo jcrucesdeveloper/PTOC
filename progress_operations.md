@@ -8,7 +8,7 @@
 6. torch.cat: X
 7. torch.sum: X
 8. torch.split: X
-9. torch.unsqueeze:
+9. torch.unsqueeze:X
 10. torch.zeros:
 11. torch.arange:
 12. torch.ones:

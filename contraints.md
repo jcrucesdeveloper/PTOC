@@ -285,7 +285,31 @@ torch.unsqueeze(x, 2)  # dim 2 is out of range [-2, 1]
 
 ## 10. torch.zeros
 
+Returns a tensor filled with the scalar value 0, with the shape defined by the variable argument size.
+**Parameters:**
+
+- `size` (`int...`): A sequence of integers defining the shape of the output tensor. Can be a variable number of arguments or a collection like a list or tuple.
+
+### Errors
+
+- RuntimeError: Trying to create tensor with negative dimension -3: [-3, 2]
+```python
+x = torch.zeros(-3,2)
+>>> RuntimeError: Trying to create tensor with negative dimension -3: [-3, 2]
+```
+
+
 ## 11. torch.arange
+Returns a 1-D tensor of size ⌈(end-start)/step⌉ with values from the interval [start, end) taken with common difference step beginning from start.
+
+The sequence follows: outᵢ₊₁ = outᵢ + step
+
+Important notes:
+- With floating-point dtypes (especially bfloat16), results may have rounding errors
+- Some values may not be exactly representable, causing repeated or unexpected rounding
+- For precise sequences, use integer dtypes instead of floating-point
+- With non-integer step, subtract a small epsilon from end to avoid floating point comparison issues
+
 
 ## 13. torch.ones
 
