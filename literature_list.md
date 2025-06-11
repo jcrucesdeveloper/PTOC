@@ -1,3 +1,25 @@
+### [Generalizing Shape Analysis with Gradual Types](https://web.cs.ucla.edu/~palsberg/paper/ecoop24.pdf)
+
+- Tensors are multi-dimensional data structures that can represent the data processed by machine11
+  learning tasks. Tensor programs tend to be short and readable, and they can leverage libraries and12
+  frameworks such as TensorFlow and PyTorch, as well as modern hardware such as GPUs and TPUs.13
+  However, tensor programs also tend to obscure shape information, which can cause shape errors14
+  that are difficult to find. Such shape errors can be avoided by a combination of shape annotations15
+  and shape analysis, but such annotations are burdensome to come up with manually.16
+  In this paper, we use gradual typing to reduce the barrier of entry. Gradual typing offers a way17
+  to incrementally introduce type annotations into programs. From there, we focus on tool support18
+  for type migration, which is a concept that closely models code-annotation tasks and allows us to do19
+  shape reasoning and utilize it for different purposes. We develop a comprehensive gradual typing20
+  theory to reason about tensor shapes. We then ask three fundamental questions about a gradually21
+  typed tensor program. (1) Does the program have a static migration? (2) Given a program and22
+  some arithmetic constraints on shapes, can we migrate the program according to the constraints?23
+  (3) Can we eliminate branches that depend on shapes? We develop novel tools to address the three24
+  problems. For the third problem, there are currently two PyTorch tools that aim to eliminate25
+  branches. They do so by eliminating them for just a single input. Our tool is the first to eliminate26
+  branches for an infinite class of inputs, using static shape information. Our tools help prevent bugs,27
+  alleviate the burden on the programmer of annotating the program, and improves the process of28
+  program transformation.
+
 ### Literature Review: Tensor Shape Mismatch Detection
 
 - [Gradual Tensor Shape Checking (full version)[2023]](https://arxiv.org/pdf/2203.08402)
