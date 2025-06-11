@@ -293,23 +293,49 @@ Returns a tensor filled with the scalar value 0, with the shape defined by the v
 ### Errors
 
 - RuntimeError: Trying to create tensor with negative dimension -3: [-3, 2]
+
 ```python
 x = torch.zeros(-3,2)
 >>> RuntimeError: Trying to create tensor with negative dimension -3: [-3, 2]
 ```
 
-
 ## 11. torch.arange
+
 Returns a 1-D tensor of size ⌈(end-start)/step⌉ with values from the interval [start, end) taken with common difference step beginning from start.
 
 The sequence follows: outᵢ₊₁ = outᵢ + step
 
 Important notes:
+
 - With floating-point dtypes (especially bfloat16), results may have rounding errors
 - Some values may not be exactly representable, causing repeated or unexpected rounding
 - For precise sequences, use integer dtypes instead of floating-point
 - With non-integer step, subtract a small epsilon from end to avoid floating point comparison issues
 
+**Parameters:**
+
+- `start` (`Number`, optional): The starting value for the set of points. Default: 0.
+- `end` (`Number`): The ending value for the set of points.
+- `step` (`Number`, optional): The gap between each pair of adjacent points. Default: 1.
+
+### Errors
+
+- RuntimeError: upper bound and larger bound inconsistent with step sign
+
+```python
+x = torch.arange(-1)
+>>>RuntimeError: upper bound and larger bound inconsistent with step sign
+
+x = torch.arange(-1, -3, 1)
+>>>RuntimeError: upper bound and larger bound inconsistent with step sign
+```
+
+- RuntimeError: step must be nonzero
+
+```python
+x. = torch.arange(1,2,0)
+>>>RuntimeError: step must be nonzero
+```
 
 ## 13. torch.ones
 

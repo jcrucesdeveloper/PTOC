@@ -9,8 +9,8 @@
 7. torch.sum: X
 8. torch.split: X
 9. torch.unsqueeze:X
-10. torch.zeros:
-11. torch.arange:
+10. torch.zeros: X
+11. torch.arange: X
 12. torch.ones:
 13. torch.max:
 14. nn.LayerNorm:
