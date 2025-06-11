@@ -1,13 +1,13 @@
 Operation Count Summary:
 
-1. range: 5333
-2. size: 4174
-3. nn.Linear: 3967
+1. range: 5333 x
+2. size: 4174 x
+3. nn.Linear: 3967 x
 4. tensor: 3599
-5. reshape: 3248
-6. transpose: 3067
-7. sum: 2289
-8. cat: 2267
+5. reshape: 3248 x
+6. transpose: 3067 x
+7. sum: 2289 x
+8. cat: 2267 x
 9. split: 2109
 10. unsqueeze: 2004
 11. zeros: 1940
