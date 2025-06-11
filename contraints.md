@@ -266,6 +266,23 @@ torch.split(x,[1,10], 1)
 
 ## 9. torch.unsqueeze
 
+Adds a dimension of size 1 at the specified position.
+
+**Parameters:**
+
+- `input` (`Tensor`): The input tensor.
+- `dim` (`int`): The index at which to insert the singleton dimension.
+
+### Errors
+
+- IndexError: Dimension must be in range [-n - 1, n] where n is the number of dimensions
+
+```python
+x = torch.tensor([1, 2, 3, 4])  # Shape (4)
+torch.unsqueeze(x, 2)  # dim 2 is out of range [-2, 1]
+>>> IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+```
+
 ## 10. torch.zeros
 
 ## 11. torch.arange

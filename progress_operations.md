@@ -6,8 +6,8 @@
 4. torch.reshape:
 5. torch.transpose: X
 6. torch.cat: X
-7. torch.sum:
-8. torch.split:
+7. torch.sum: X
+8. torch.split: X
 9. torch.unsqueeze:
 10. torch.zeros:
 11. torch.arange:
