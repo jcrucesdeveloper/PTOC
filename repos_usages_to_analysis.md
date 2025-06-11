@@ -8,8 +8,15 @@
    - Deep learning examples for BERT model
 
 2. **Whisper** - OpenAI's Speech Recognition Model
+
    - [Repository](https://github.com/openai/whisper)
    - Multilingual speech recognition system
+
+3. **LLaMA** - Meta AI
+   - [Repository](https://github.com/facebookresearch/llama)
+   - Open source large language model implementation
+   - Base for many commercial models
+   - PyTorch implementation
 
 ## Frameworks & Libraries
 
@@ -31,21 +38,35 @@
    - Industry standard for object detection and segmentation
    - Used by Meta, Microsoft, and many research labs
 
-2. **YOLOv5** - 
+2. **YOLOv5**
+
    - [Repository](https://github.com/ultralytics/yolov5)
    - State-of-the-art real-time object detection
    - Industry standard for production deployment
    - Used by thousands of companies worldwide
 
-## Deep Learning Frameworks
+3. **Segment Anything** - Meta AI
+   - [Repository](https://github.com/facebookresearch/segment-anything)
+   - Foundation model for image segmentation
+   - Used in production systems
+   - PyTorch-based
 
-1. **PyTorch Lightning** - Lightning AI
+## Multimodal Models
 
-   - [Repository](https://github.com/Lightning-AI/lightning)
-   - Industry standard for PyTorch development
-   - Used by 80% of Fortune 500 companies
+1. **CLIP** - OpenAI
 
-2. **FastAI** - Fast.ai
-   - [Repository](https://github.com/fastai/fastai)
-   - Revolutionized deep learning education
-   - Used by millions of developers worldwide
+   - [Repository](https://github.com/openai/CLIP)
+   - Vision-language model implementation
+   - Used in many image search and classification systems
+
+2. **BLIP** - Salesforce
+   - [Repository](https://github.com/salesforce/BLIP)
+   - Vision-language model for image understanding
+   - State-of-the-art for image captioning and VQA
+
+## Generative AI
+
+1. **Stable Diffusion** - Stability AI
+   - [Repository](https://github.com/StableDiffusion/StableDiffusion)
+   - Real implementation of text-to-image generation
+   - Used in production by many companies
