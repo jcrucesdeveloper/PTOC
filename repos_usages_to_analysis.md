@@ -11,12 +11,6 @@
    - [Repository](https://github.com/openai/whisper)
    - Multilingual speech recognition system
 
-## Translation Models
-
-1. **GNMT v2** - Google's Neural Machine Translation
-   - [Repository](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Translation/GNMT)
-   - PyTorch implementation of GNMT
-
 ## Frameworks & Libraries
 
 1. **Transformers** - Hugging Face
@@ -37,16 +31,11 @@
    - Industry standard for object detection and segmentation
    - Used by Meta, Microsoft, and many research labs
 
-2. **Stable Diffusion** - Stability AI
-
-   - [Repository](https://github.com/CompVis/stable-diffusion)
-   - Revolutionized text-to-image generation
-   - One of the most forked ML repositories ever
-
-3. **YOLOv5** - Ultralytics
+2. **YOLOv5** - 
    - [Repository](https://github.com/ultralytics/yolov5)
-   - Industry standard for real-time object detection
-   - Used in production by thousands of companies
+   - State-of-the-art real-time object detection
+   - Industry standard for production deployment
+   - Used by thousands of companies worldwide
 
 ## Deep Learning Frameworks
 
@@ -60,23 +49,3 @@
    - [Repository](https://github.com/fastai/fastai)
    - Revolutionized deep learning education
    - Used by millions of developers worldwide
-
-## Generative AI
-
-1. **StyleGAN2** - NVIDIA
-
-   - [Repository](https://github.com/NVlabs/stylegan2)
-   - State-of-the-art image generation
-   - Used in production by major tech companies
-
-2. **DALL-E Mini** - Lucidrains
-   - [Repository](https://github.com/lucidrains/DALLE-pytorch)
-   - Open source text-to-image generation
-   - One of the most popular generative AI implementations
-
-## Reinforcement Learning
-
-1. **Stable Baselines3** - DLR-RM
-   - [Repository](https://github.com/DLR-RM/stable-baselines3)
-   - Industry standard for RL implementations
-   - Used by major research labs and companies
