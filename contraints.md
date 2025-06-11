@@ -29,7 +29,6 @@ torch.range(1, 3,  -1)
 
 ### Constraints
 
-
 ```
 range c1 c2 c3 -> TT_output
 ```
@@ -38,19 +37,20 @@ range c1 c2 c3 -> TT_output
 
 torch.Size is the result type of a call to torch.Tensor.size(). It describes the size of all dimensions of the original tensor. As a subclass of tuple, it supports common sequence operations like indexing and length.
 
-
 **Parameters:**
 No parameters
 
 ### Errors
+
 Operations without parameters no error
 
-### Contraints 
+### Contraints
+
 ...
 
 ## 3. torch.nn.Linear
 
-Applies an affine linear transformation to the incoming data:  y = x(A^T) + b
+Applies an affine linear transformation to the incoming data: y = x(A^T) + b
 
 This module supports TensorFloat32.
 
@@ -63,6 +63,7 @@ On certain ROCm devices, when using float16 inputs this module will use differen
 - `bias` (`bool`) – If set to False, the layer will not learn an additive bias. Default: True
 
 ### Errors
+
 - RuntimeError: Trying to create tensor with negative dimension -1: [20, -1]
 
 ```python
@@ -73,7 +74,8 @@ nn.Linear(1,-1)
 >>> RuntimeError: Trying to create tensor with negative dimension -1: [-1, 1]
 ```
 
-### Contraints 
+### Contraints
+
 ...
 
 ## 4. torch.reshape
@@ -112,13 +114,36 @@ torch.reshape(t, (4, 3))
 ```
 
 ### Constraints
+
 ...
 
-## 5. torch.flatten 
+## 6. torch.transpose
+
+Returns a tensor that is a transposed version of input. The given dimensions dim0 and dim1 are swapped.
+
+**Parameters:**
+
+- `input` (`Tensor`): The input tensor.
+- `dim0` (`int`): The first dimension to be transposed
+- `dim1` (`int`): The second dimension to be transposed
+
+### Errors
+
+- IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+
+```python
+x = torch.randn(2, 3)  # Shape (2,3)
+torch.transpose(x, 0, 2)  # dim 2 is out of range [-2, 1]
+>>> IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+```
+
+### Constraints
+
+...
+
+## 5. torch.flatten
 
 Flattens input by reshaping it into a one-dimensional tensor. If start_dim or end_dim are passed, only dimensions starting with start_dim and ending with end_dim are flattened. The order of elements in input is unchanged.
-
-
 
 **Parameters:**
 
@@ -142,44 +167,7 @@ torch.flatten(t, start_dim=2,end_dim=3)
 >>> IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
 ```
 
-## 6. torch.transpose
-
-Returns a tensor that is a transposed version of input. The given dimensions dim0 and dim1 are swapped.
-
-**Parameters:**
-
-- `input` (`Tensor`): The input tensor.
-- `dim0` (`int`): The first dimension to be transposed
-- `dim1` (`int`): The second dimension to be transposed
-
-### Errors
-- IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
-
-```python
-x = torch.randn(2, 3)  # Shape (2,3)
-torch.transpose(x, 0, 2)  # dim 2 is out of range [-2, 1]
->>> IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
-```
-
-### Constraints
-...
-
-
-## 7. torch.sum
- 
-Returns the sum of all elements in the input tensor.
-
-**Parameters:**
-
-- `input` (`Tensor`): The input tensor.
-
-### Errors
-...
-
-### Constraints
-...
-
-## 8. torch.cat
+## 6. torch.cat
 
 Concatenates the given sequence of tensors in tensors in the given dimension. All tensors must either have the same shape (except in the concatenating dimension) or be a 1-D empty tensor with size (0,).
 
@@ -209,15 +197,79 @@ torch.cat((x, y), dim=0)
 ```
 
 ### Constraints
+
 ...
 
-## 9. torch.split
+## 7. torch.sum
 
-## 10. torch.unsqueeze
+Returns the sum of all elements in the input tensor.
 
-## 11. torch.zeros
+**Parameters:**
 
-## 12. torch.arange
+- `input` (`Tensor`): The input tensor.
+- `dim` (`int` or `tuple of ints`, optional): The dimension or dimensions to reduce. If None, all dimensions are reduced
+
+### Errors
+
+- IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 2)
+
+```python
+x = torch.randn(2, 3)  # Shape (2,3)
+torch.sum(x,2)
+```
+
+...
+
+### Constraints
+
+...
+
+## 8. torch.split
+
+Splits the tensor into chunks. Each chunk is a view of the original tensor.
+
+If split_size_or_sections is an integer type, then tensor will be split into equally sized chunks (if possible). Last chunk will be smaller if the tensor size along the given dimension dim is not divisible by split_size.
+
+If split_size_or_sections is a list, then tensor will be split into len(split_size_or_sections) chunks with sizes in dim according to split_size_or_sections.
+
+### Errors
+
+- RuntimeError: split_size can only be 0 if dimension size is 0, but got dimension size of 5
+
+```python
+x = torch.arange(10).reshape(5, 2)
+torch.split(x, 0)
+>>> RuntimeError: split expects split_size be non-negative, but got split_size=-1
+```
+
+- RuntimeError: split expects split_size be non-negative, but got split_size=-1
+
+```python
+x = torch.arange(10).reshape(5, 2)
+torch.split(x, -1)
+>>> RuntimeError: split expects split_size be non-negative, but got split_size=-1
+```
+
+- RuntimeError: split_with_sizes expects split_sizes to sum exactly to 2 (input tensor's size at dimension 1), but got split_sizes=[1, 10]
+
+```python
+
+x = torch.arange(10).reshape(5, 2)
+
+# Without parameter dim
+torch.split(x,[1,10], 1)
+RuntimeError: split_with_sizes expects split_sizes to sum exactly to 5 (input tensor's size at dimension 0), but got split_sizes=[1, 10]
+
+# With parameter dim
+torch.split(x,[1,10], 1)
+>>>  RuntimeError: split_with_sizes expects split_sizes to sum exactly to 2 (input tensor's size at dimension 1), but got split_sizes=[1, 10]
+```
+
+## 9. torch.unsqueeze
+
+## 10. torch.zeros
+
+## 11. torch.arange
 
 ## 13. torch.ones
 
@@ -254,7 +306,3 @@ torch.cat((x, y), dim=0)
 ## 29. torch.Embedding
 
 ## 30. torch.sqrt
-
-
-
-
