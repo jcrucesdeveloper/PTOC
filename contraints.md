@@ -148,7 +148,10 @@ torch.transpose(x, 0, 2)  # dim 2 is out of range [-2, 1]
 
 ### Constraints
 
-...
+transpose TT_input[ti_1, ... ,ti_n] dim0 dim1 -> TT_output[to_1, ... ,to_n]
+
+- dim0 >= -n && dim0 < n
+- dim1 >= -n && dim1 < n
 
 ## 5. torch.flatten
 
@@ -175,6 +178,14 @@ torch.flatten(t, start_dim=10)
 torch.flatten(t, start_dim=2,end_dim=3)
 >>> IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
 ```
+
+### Constraints
+
+flatten
+
+- start_dim >= -n && start_dim < n
+- end_dim >= -n && end_dim < n
+- start_dim <= end_dim
 
 ## 6. torch.cat
 
@@ -207,7 +218,12 @@ torch.cat((x, y), dim=0)
 
 ### Constraints
 
-...
+cat [TT_input_1[ti_1, ... ,ti_n], ... ,TT_input_m[ti_1, ... ,ti_n]] dim -> TT_output[to_1, ... ,to_n]
+
+- dim >= -n && dim < n
+- for all i,j in [1..m]:
+  - TT_input_i.shape[k] == TT_input_j.shape[k] for all k != dim
+  - or (TT_input_i.shape == (0,) && TT_input_j.shape == (0,))
 
 ## 7. torch.sum
 
