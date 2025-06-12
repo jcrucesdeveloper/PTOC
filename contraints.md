@@ -389,6 +389,34 @@ torch.sum(x,4)
 
 ## 15. torch.any
 
+Tests if any element in input evaluates to True.
+
+For each row of input in the given dimension dim, returns True if any element in the row evaluate to True and False otherwise.
+
+If keepdim is True, the output tensor is of the same size as input except in the dimension(s) dim where it is of size 1. Otherwise, dim is squeezed (see torch.squeeze()), resulting in the output tensor having 1 (or len(dim)) fewer dimension(s).
+
+**Parameters:**
+
+- `input` (`Tensor`): The input tensor
+- `dim` (`int` or `tuple of ints`): The dimension or dimensions to reduce
+- `keepdim` (`bool`): Whether the output tensor has dim retained or not
+
+### Errors
+
+-IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
+
+```python
+x = torch.rand(3,2,1)
+torch.any(x,3)
+>>> IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
+
+x = torch.rand(3,2,1)
+torch.any(x,3)
+>>> IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
+```
+
+### Constraints
+
 ## 16. torch.nn.LayerNorm
 
 ## 17. torch.squeeze
