@@ -31,6 +31,8 @@ torch.range(1, 3,  -1)
 
 ```
 range c1 c2 c3 -> TT_output
+- c3 != 0
+- (c2 - c1) * c3 > 0
 ```
 
 ## 2. torch.Tensor.size
@@ -76,7 +78,10 @@ nn.Linear(1,-1)
 
 ### Contraints
 
-...
+linear c1 c2 b -> TT_output
+
+- c1 > 0
+- c2 > 0
 
 ## 4. torch.reshape
 
@@ -115,7 +120,11 @@ torch.reshape(t, (4, 3))
 
 ### Constraints
 
-...
+reshape TT_input[ti_1, ... ,t1_n] -> TT_output[to_1, ... to_2]
+
+- for each t in TT_input: d > 0 || d == -1
+- count(d == -1 for d in shape) <= 1 # Only one dimension can be -1
+- product(TT_input) == product(TT_output) # Total elements must match
 
 ## 6. torch.transpose
 
@@ -403,7 +412,7 @@ If keepdim is True, the output tensor is of the same size as input except in the
 
 ### Errors
 
--IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
+- IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
 
 ```python
 x = torch.rand(3,2,1)
@@ -416,6 +425,8 @@ torch.any(x,3)
 ```
 
 ### Constraints
+
+..
 
 ## 16. torch.nn.LayerNorm
 

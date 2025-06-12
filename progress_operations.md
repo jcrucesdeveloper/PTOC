@@ -13,8 +13,8 @@
 11. torch.arange: X
 12. torch.ones: x
 13. torch.max: x
-14. nn.LayerNorm:
-15. torch.squeeze:
+14. nn.LayerNorm: X
+15. torch.squeeze:X
 16. torch.expand:
 17. torch.any:
 18. torch.allclose:
