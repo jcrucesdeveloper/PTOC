@@ -243,11 +243,11 @@ x = torch.randn(2, 3)  # Shape (2,3)
 torch.sum(x,2)
 ```
 
-...
-
 ### Constraints
 
-...
+sum TT_input[ti_1, ... ,ti_n] dim -> TT_output[to_1, ... ,to_m]
+
+- dim >= -n && dim < n
 
 ## 8. torch.split
 
@@ -288,6 +288,18 @@ RuntimeError: split_with_sizes expects split_sizes to sum exactly to 5 (input te
 torch.split(x,[1,10], 1)
 >>>  RuntimeError: split_with_sizes expects split_sizes to sum exactly to 2 (input tensor's size at dimension 1), but got split_sizes=[1, 10]
 ```
+
+### Constraints
+
+split TT_input[ti_1, ... ,ti_n] split_size_or_sections dim -> [TT_output_1[to_1, ... ,to_n], ... ,TT_output_m[to_1, ... ,to_n]]
+
+- if split_size_or_sections is int:
+  - split_size_or_sections > 0
+  - dim >= -n && dim < n
+- if split_size_or_sections is list:
+  - all(s > 0 for s in split_size_or_sections)
+  - sum(split_size_or_sections) == TT_input.shape[dim]
+  - dim >= -n && dim < n
 
 ## 9. torch.unsqueeze
 
